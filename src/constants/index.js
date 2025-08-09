@@ -202,17 +202,17 @@ export const mySocials = [
   {
     name: "WhatsApp",
     href: "https://wa.me/351932817204",
-    icon: "../assets/socials/whatsApp.svg",
+    icon: `../assets/socials/whatsApp.svg`,
   },
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/pedro-torres-741358294/",
-    icon: "../assets/socials/linkedIn.svg",
+    icon: `../assets/socials/linkedIn.svg`,
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/_ptorres__/",
-    icon: "../assets/socials/instagram.svg",
+    icon: `../assets/socials/instagram.svg`,
   },
 ];
 
