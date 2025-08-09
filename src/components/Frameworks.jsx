@@ -4,7 +4,6 @@ export function Frameworks() {
   const skills = [
     "cplusplus",
     "csharp",
-    "css3",
     "dotnet",
     "git",
     "github",
