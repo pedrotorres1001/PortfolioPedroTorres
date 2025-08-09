@@ -10,27 +10,27 @@ export const myProjects = [
     ],
     href: `https://ritaguimaraes.itch.io/volcano-heart`,
     logo: ``,
-    image: `/assets/projects/VolcanoHeart.jpg`,
+    image: new URL("./assets/projects/VolcanoHeart.jpg", import.meta.url).href,
     tags: [
       {
         id: 1,
         name: "C#",
-        path: `/assets/logos/csharp.svg`,
+        path: new URL("./assets/logos/csharp.svg", import.meta.url).href,
       },
       {
         id: 2,
         name: "Aseprite",
-        path: `/assets/logos/aseprite.webp`,
+        path: new URL("./assets/logos/aseprite.webp", import.meta.url).href,
       },
       {
         id: 3,
         name: "Unity",
-        path: `/assets/logos/unity.webp`,
+        path: new URL("./assets/logos/unity.webp", import.meta.url).href,
       },
       {
         id: 4,
         name: "Github",
-        path: `/assets/logos/github.svg`,
+        path: new URL("./assets/logos/github.svg", import.meta.url).href,
       },
     ],
   },
@@ -45,27 +45,27 @@ export const myProjects = [
     ],
     href: `https://nadjito.itch.io/unbreakable-phone`,
     logo: ``,
-    image: `/assets/projects/Unbreakable.jpg`,
+    image: new URL("./assets/projects/Unbreakable.jpg", import.meta.url).href,
     tags: [
       {
         id: 1,
         name: "Unreal Engine",
-        path: `/assets/logos/unreal.webp`,
+        path: new URL("./assets/logos/unreal.webp", import.meta.url).href,
       },
       {
         id: 2,
         name: "C++",
-        path: `/assets/logos/cplusplus.svg`,
+        path: new URL("./assets/logos/cplusplus.svg", import.meta.url).href,
       },
       {
         id: 3,
         name: "Blender",
-        path: `/assets/logos/blender.webp`,
+        path: new URL("./assets/logos/blender.webp", import.meta.url).href,
       },
       {
         id: 4,
         name: "Github",
-        path: `/assets/logos/github.svg`,
+        path: new URL("./assets/logos/github.svg", import.meta.url).href,
       },
     ],
   },
@@ -80,27 +80,27 @@ export const myProjects = [
     ],
     href: `https://code.nap.av.it.pt/adas/yolo-peci`,
     logo: ``,
-    image: `/assets/projects/peci.jpg`,
+    image: new URL("./assets/projects/peci.jpg", import.meta.url).href,
     tags: [
       {
         id: 1,
         name: "C++",
-        path: `/assets/logos/cplusplus.svg`,
+        path: new URL("./assets/logos/cplusplus.svg", import.meta.url).href,
       },
       {
         id: 2,
         name: "Vanetza",
-        path: `/assets/logos/vanetza.png`,
+        path: new URL("./assets/logos/vanetza.png", import.meta.url).href,
       },
       {
         id: 3,
         name: "autoware",
-        path: `/assets/logos/autoware.webp`,
+        path: new URL("./assets/logos/autoware.webp", import.meta.url).href,
       },
       {
         id: 4,
         name: "Github",
-        path: `/assets/logos/github.svg`,
+        path: new URL("./assets/logos/github.svg", import.meta.url).href,
       },
     ],
   },
@@ -117,27 +117,28 @@ export const myProjects = [
     ],
     href: "https://github.com/MMarQs/IHC",
     logo: ``,
-    image: `/assets/projects/blockbuster.jpg`,
+    image: new URL("./assets/projects/blockbuster.jpg", import.meta.url).href,
     tags: [
       {
         id: 1,
         name: "React.js",
-        path: `/assets/logos/react.svg`,
+        path: new URL("./assets/logos/react.svg", import.meta.url).href,
       },
       {
         id: 2,
         name: "HTML",
-        path: `/assets/logos/html5.svg`,
+        path: new URL("./assets/logos/html5.svg", import.meta.url).href,
       },
       {
         id: 3,
         name: "Github",
-        path: `/assets/logos/github.svg`,
+        path: new URL("./assets/logos/github.svg", import.meta.url).href,
       },
       {
         id: 4,
         name: "Visual Studio Code",
-        path: `/assets/logos/visualstudiocode.svg`,
+        path: new URL("./assets/logos/visualstudiocode.svg", import.meta.url)
+          .href,
       },
     ],
   },
@@ -152,27 +153,27 @@ export const myProjects = [
     ],
     href: "https://github.com/DavidPalricas/BD/tree/main/P/Projeto_Final",
     logo: ``,
-    image: `/assets/projects/abrigo.jpg`,
+    image: new URL("./assets/projects/abrigo.jpg", import.meta.url).href,
     tags: [
       {
         id: 1,
         name: "Sqlite",
-        path: `/assets/logos/sqlite.svg`,
+        path: new URL("./assets/logos/sqlite.svg", import.meta.url).href,
       },
       {
         id: 2,
         name: ".NET",
-        path: `/assets/logos/dotnet.svg`,
+        path: new URL("./assets/logos/dotnet.svg", import.meta.url).href,
       },
       {
         id: 3,
         name: "C#",
-        path: `/assets/logos/csharp.svg`,
+        path: new URL("./assets/logos/csharp.svg", import.meta.url).href,
       },
       {
         id: 4,
         name: "Github",
-        path: `/assets/logos/github.svg`,
+        path: new URL("./assets/logos/github.svg", import.meta.url).href,
       },
     ],
   },
@@ -187,12 +188,12 @@ export const myProjects = [
     ],
     href: ``,
     logo: ``,
-    image: `/assets/projects/ma3d.jpg`,
+    image: new URL("./assets/projects/ma3d.jpg", import.meta.url).href,
     tags: [
       {
         id: 1,
         name: "Blender",
-        path: `/assets/logos/blender.webp`,
+        path: new URL("./assets/logos/blender.webp", import.meta.url).href,
       },
     ],
   },
@@ -202,17 +203,17 @@ export const mySocials = [
   {
     name: "WhatsApp",
     href: "https://wa.me/351932817204",
-    icon: `/assets/socials/whatsApp.svg`,
+    icon: new URL("./assets/socials/whatsApp.svg", import.meta.url).href,
   },
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/pedro-torres-741358294/",
-    icon: `/assets/socials/linkedIn.svg`,
+    icon: new URL("./assets/socials/linkedIn.svg", import.meta.url).href,
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/_ptorres__/",
-    icon: `/assets/socials/instagram.svg`,
+    icon: new URL("./assets/socials/instagram.svg", import.meta.url).href,
   },
 ];
 
