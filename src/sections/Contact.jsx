@@ -34,7 +34,7 @@ const Contact = () => {
         "template_17us8im",
         {
           from_name: formData.name,
-          to_name: "Ali",
+          to_name: "Pedro",
           from_email: formData.email,
           to_email: "pedrocorreia200@icloud.com",
           message: formData.message,
