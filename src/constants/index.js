@@ -1,240 +1,189 @@
+/**
+ * ─────────────────────────────────────────────────────────────
+ *  CONTEÚDO DO PORTFÓLIO
+ *  Todo o texto do site vive aqui. Os componentes só leem daqui.
+ *  Procura "TODO" para os campos que ainda faltam preencher.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+export const profile = {
+  name: "Pedro Torres",
+  handle: "PEDRO_TORRES",
+  // TODO: substituir pelo cargo real na Kuehne+Nagel
+  role: "ROLE_TBD",
+  company: "Kuehne+Nagel",
+  tagline:
+    "Software engineer with a game developer's eye — building reliable systems and interactive worlds.",
+  location: "Aveiro, Portugal",
+  timezone: "Europe/Lisbon",
+  availability: "Open to remote collaboration worldwide",
+  email: "pedrocorreia917@gmail.com",
+  version: "2.0.0",
+};
+
+/** Usado no <title>, meta description e Open Graph (ver também index.html). */
+export const seo = {
+  title: `${profile.name} — ${profile.role}`,
+  description:
+    "Portfolio of Pedro Torres — software engineer at Kuehne+Nagel with a Master's in Digital Game Development from the University of Aveiro.",
+};
+
+export const navLinks = [
+  { id: "home", label: "HOME" },
+  { id: "work", label: "WORK" },
+  { id: "projects", label: "PROJECTS" },
+  { id: "education", label: "EDU" },
+  { id: "contact", label: "CONTACT" },
+];
+
+/** Experiência profissional — a primeira entrada aparece em destaque. */
+export const work = [
+  {
+    company: "Kuehne+Nagel",
+    node: "ACTIVE",
+    // TODO: cargo real
+    role: "ROLE_TBD",
+    // TODO: confirmar o mês de entrada (formato AAAA-MM). Alimenta o contador "UPTIME".
+    startDate: "2025-10",
+    endDate: null, // null = presente
+    location: "Portugal",
+    // TODO: 2–3 pontos sobre o que fazes, tecnologias e impacto
+    contents: [
+      "TODO — what you build or maintain day to day",
+      "TODO — main technologies and tools",
+      "TODO — one concrete result or impact",
+    ],
+    stack: [], // TODO: ex. ["C#", ".NET", "SQL"]
+  },
+];
+
+export const education = [
+  {
+    institution: "University of Aveiro",
+    degree: "Master's in Digital Game Development",
+    period: "2024 — 2026",
+    // TODO: mudar para "COMPLETED" quando o mestrado estiver concluído
+    status: "IN_PROGRESS",
+    contents: [
+      "Advanced game design, real-time development techniques and industry-standard pipelines.",
+      "Shipped team projects in Unity and Unreal Engine — see Volcano Heart and Unbreakable Phone.",
+    ],
+  },
+  {
+    institution: "University of Aveiro",
+    degree: "Bachelor's in Computer Engineering",
+    period: "2021 — 2024",
+    status: "COMPLETED",
+    contents: [
+      "Solid foundation in software engineering, programming languages and computer science.",
+      "Final project on sensing and perception for autonomous vehicles, in a team of six.",
+    ],
+  },
+];
+
+/** Cartão "VOW" — princípios. */
+export const principles = [
+  { key: "CRAFT", value: "CODE_IS_CRAFT" },
+  { key: "DESIGN", value: "SOLID · GRASP · DESIGN_PATTERNS" },
+  { key: "INTENT", value: "BUILD_THINGS_PEOPLE_ENJOY_USING" },
+];
+
 export const myProjects = [
   {
     id: 1,
     title: "Volcano Heart",
+    category: "2D GAME",
     description:
-      "2D Game Project for the Master's Degree in Digital Game Development. University of Aveiro, Portugal.",
+      "2D game project for the Master's in Digital Game Development, University of Aveiro.",
     subDescription: [
-      "Volcano Heart is a 2D pixel art game that combines exploration, combat, and puzzle solving set in underground ruins inside a volcano.",
-      "The player takes control of a dwarf determined to recover a lost artifact essential to saving his village.",
+      "Volcano Heart is a 2D pixel-art game that combines exploration, combat and puzzle solving, set in underground ruins inside a volcano.",
+      "The player controls a dwarf determined to recover a lost artifact essential to saving his village.",
     ],
     href: "https://ritaguimaraes.itch.io/volcano-heart",
-    logo: ``,
-    image: "./assets/projects/VolcanoHeart.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "C#",
-        path: "./assets/logos/csharp.svg",
-      },
-      {
-        id: 2,
-        name: "Aseprite",
-        path: "./assets/logos/aseprite.webp",
-      },
-      {
-        id: 3,
-        name: "Unity",
-        path: "./assets/logos/unity.webp",
-      },
-      {
-        id: 4,
-        name: "Github",
-        path: "./assets/logos/github.svg",
-      },
-    ],
+    image: "./assets/projects/volcanoheart.webp",
+    tags: ["C#", "Unity", "Aseprite", "GitHub"],
   },
   {
     id: 2,
     title: "Unbreakable Phone",
+    category: "3D GAME",
     description:
-      "3D Game Project for the Master's Degree in Digital Game Development. University of Aveiro, Portugal.",
+      "3D game project for the Master's in Digital Game Development, University of Aveiro.",
     subDescription: [
-      "Take on the role of Dona Irene, a strong elderly women, who's goal is to take down EternaTech, the leading Tech company in the world which has been overcome with greed and power.",
-      "To do so, Dona Irene, retrieves her old trusted phone, which has special abilities to help her dismantle the evil corporation.",
+      "Play as Dona Irene, a strong elderly woman whose goal is to take down EternaTech, the world's leading tech company, consumed by greed and power.",
+      "To do so, she retrieves her trusty old phone, whose special abilities help her dismantle the evil corporation.",
     ],
     href: "https://nadjito.itch.io/unbreakable-phone",
-    logo: ``,
-    image: "./assets/projects/Unbreakable.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "Unreal Engine",
-        path: "./assets/logos/unreal.webp",
-      },
-      {
-        id: 2,
-        name: "C++",
-        path: "./assets/logos/cplusplus.svg",
-      },
-      {
-        id: 3,
-        name: "Blender",
-        path: "./assets/logos/blender.webp",
-      },
-      {
-        id: 4,
-        name: "Github",
-        path: "./assets/logos/github.svg",
-      },
-    ],
+    image: "./assets/projects/unbreakable.webp",
+    tags: ["Unreal Engine", "C++", "Blender", "GitHub"],
   },
   {
     id: 3,
     title: "Bachelor Final Project",
+    category: "AUTONOMOUS VEHICLES",
     description:
-      "Sensing and Perception for controlling Autonomous Mobility Vehicles",
+      "Sensing and perception for controlling autonomous mobility vehicles.",
     subDescription: [
-      "This project was developed in PECI in collaboration with a team of 6 members and focused on the topic of control and sensing of an autonomous vehicle.",
-      "My contribution focused more on the visualization component and the implementation of pre-trained models for recognizing obstacles and traffic signs.",
+      "Developed in PECI with a team of six, focused on the control and sensing of an autonomous vehicle.",
+      "My contribution centred on the visualization component and on integrating pre-trained models to recognise obstacles and traffic signs.",
     ],
     href: "https://code.nap.av.it.pt/adas/yolo-peci",
-    logo: ``,
-    image: "./assets/projects/peci.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "C++",
-        path: "./assets/logos/cplusplus.svg",
-      },
-      {
-        id: 2,
-        name: "Vanetza",
-        path: "./assets/logos/vanetza.png",
-      },
-      {
-        id: 3,
-        name: "autoware",
-        path: "./assets/logos/autoware.webp",
-      },
-      {
-        id: 4,
-        name: "Github",
-        path: "./assets/logos/github.svg",
-      },
-    ],
+    image: "./assets/projects/peci.webp",
+    tags: ["C++", "Vanetza", "Autoware", "YOLO"],
   },
   {
     id: 4,
     title: "BlockBuster",
+    category: "WEB APP",
     description:
-      "A web application that allows users to buy and watch their favorite movies and series.",
+      "A web application to buy and watch favourite movies and series.",
     subDescription: [
-      "BlockBuster is an online movie store that takes us back in the time.",
-      "Like the good old days that you could buy a movie anywhere and watch it almost anywhere comes BlockBuster to help you revive your memories.",
-      "The website consists of the possibility of purchasing either streaming or physical copies of movies.",
-      "The website was developed with React.JS.",
+      "BlockBuster is an online movie store that takes you back in time.",
+      "Like the good old days when you could buy a movie anywhere and watch it almost anywhere, it lets you purchase either streaming or physical copies.",
+      "Built with React.",
     ],
     href: "https://github.com/MMarQs/IHC",
-    logo: ``,
-    image: "./assets/projects/blockbuster.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: "./assets/logos/react.svg",
-      },
-      {
-        id: 2,
-        name: "HTML",
-        path: "./assets/logos/html5.svg",
-      },
-      {
-        id: 3,
-        name: "Github",
-        path: "./assets/logos/github.svg",
-      },
-      {
-        id: 4,
-        name: "Visual Studio Code",
-        path: "./assets/logos/visualstudiocode.svg",
-      },
-    ],
+    image: "./assets/projects/blockbuster.webp",
+    tags: ["React", "HTML", "CSS"],
   },
   {
     id: 5,
     title: "Abrigo De Carinho",
+    category: "DATABASE",
     description:
-      "A database for a local shelter that allows users to adopt pets and take care of them.",
+      "A management system for a local animal shelter, from adoptions to staff.",
     subDescription: [
-      "Abrigo De Carinho was a project proposed by a shelter located in Praia de Mira with the aim of improving the management of the animals in their care.",
-      "Through a minimalist design to facilitate adaptation to the program, it is possible for an admin to carry out any addition or subtraction of both animals and employees.",
+      "Proposed by a shelter in Praia de Mira to improve the management of the animals in its care.",
+      "A minimalist interface makes it easy for an admin to add or remove both animals and employees.",
     ],
     href: "https://github.com/DavidPalricas/BD/tree/main/P/Projeto_Final",
-    logo: ``,
-    image: "./assets/projects/abrigo.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "Sqlite",
-        path: "./assets/logos/sqlite.svg",
-      },
-      {
-        id: 2,
-        name: ".NET",
-        path: "./assets/logos/dotnet.svg",
-      },
-      {
-        id: 3,
-        name: "C#",
-        path: "./assets/logos/csharp.svg",
-      },
-      {
-        id: 4,
-        name: "Github",
-        path: "./assets/logos/github.svg",
-      },
-    ],
+    image: "./assets/projects/abrigo.webp",
+    tags: ["C#", ".NET", "SQL"],
   },
   {
     id: 6,
     title: "Modelling Project",
-    description:
-      "A project in which I modelled a 3D coffee break area using Blender.",
+    category: "3D MODELLING",
+    description: "A 3D coffee-break area modelled in Blender.",
     subDescription: [
-      "This project is part of the Modelling course at the University of Aveiro, developed in Blender.",
-      "It is a coffee break area with two different spots for hanging out, an area for everyone to have a snack and meals and spots to prepare them.",
+      "Developed for the Modelling course at the University of Aveiro.",
+      "A coffee-break area with two hang-out spots, a space for snacks and meals, and counters to prepare them.",
     ],
-    href: ``,
-    logo: ``,
-    image: "./assets/projects/ma3d.jpg",
-    tags: [
-      {
-        id: 1,
-        name: "Blender",
-        path: "./assets/logos/blender.webp",
-      },
-    ],
+    href: "",
+    image: "./assets/projects/ma3d.webp",
+    tags: ["Blender"],
   },
 ];
 
 export const mySocials = [
-  {
-    name: "WhatsApp",
-    href: "https://wa.me/351932817204",
-    icon: `assets/socials/whatsApp.svg`,
-  },
-  {
-    name: "Linkedin",
-    href: "https://www.linkedin.com/in/pedro-torres-741358294/",
-    icon: `assets/socials/linkedIn.svg`,
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/_ptorres__/",
-    icon: `assets/socials/instagram.svg`,
-  },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/pedro-torres-741358294/" },
+  { name: "Instagram", href: "https://www.instagram.com/_ptorres__/" },
 ];
 
-export const experiences = [
-  {
-    title: "Bachelor's Degree in University of Aveiro",
-    job: "Computer Science Engineering",
-    date: "2021-2024",
-    contents: [
-      "Graduated with a Bachelor's Degree in Computer Science Engineering from the University of Aveiro, Portugal.",
-      "Developed a strong foundation in software engineering, programming languages, and computer science principles.",
-      "Participated in various projects and collaborations, enhancing teamwork and problem-solving skills.",
-    ],
-  },
-  {
-    title: "Master's Degree in University of Aveiro",
-    job: "Game Development",
-    date: "2024-2026",
-    contents: [
-      "Currently pursuing a Master's Degree in Game Development at the University of Aveiro, Portugal.",
-      "Focusing on advanced game design, development techniques, and industry-standard practices.",
-      "Engaging in hands-on projects to apply theoretical knowledge in practical scenarios.",
-    ],
-  },
-];
+/** Formulário de contacto (EmailJS). Chaves públicas — já estavam no projeto. */
+export const emailjsConfig = {
+  serviceId: "service_c9n6vkc",
+  templateId: "template_555btr2",
+  publicKey: "LY2xtIyWkJ-_p4jy4",
+  toName: "Pedro",
+};
