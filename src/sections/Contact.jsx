@@ -30,7 +30,7 @@ function CopyEmail() {
     }
   };
   return (
-    <button type="button" onClick={copy} className="btn-sys" aria-live="polite">
+    <button type="button" onClick={copy} className="btn-sys" aria-live="polite" data-cursor="COPY">
       {copied ? t(ui.copied) : <Scramble text={t(ui.copyEmail)} />}
     </button>
   );
@@ -88,8 +88,13 @@ export default function Contact() {
               {t(ui.contactIntro)}
             </p>
             <p className="label mt-4">{t(profile.availability)}</p>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap gap-2">
               <CopyEmail />
+              {profile.cvUrl && (
+                <a href={profile.cvUrl} target="_blank" rel="noreferrer" className="btn-sys" data-cursor="CV">
+                  <Scramble text={ui.cv} />
+                </a>
+              )}
             </div>
             <ul className="mt-10 border-t border-line">
               {links.map((l) => (

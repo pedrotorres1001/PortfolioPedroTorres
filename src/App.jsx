@@ -12,6 +12,8 @@ import ProjectDossier from "./components/ProjectDossier";
 import Overlays from "./components/Overlays";
 import SideIndex from "./components/SideIndex";
 import Connector from "./components/Connector";
+import { ui } from "./constants";
+import { useT } from "./state/AppState";
 import { useEffect } from "react";
 import sfx from "./lib/sfx";
 
@@ -28,10 +30,11 @@ function useClickSound() {
 
 const App = () => {
   useClickSound();
+  const t = useT();
   return (
   <>
     <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[95] btn-sys-solid">
-      Skip to content
+      {t(ui.skip)}
     </a>
     <Boot />
     <Cursor />

@@ -6,6 +6,7 @@ export default function Cursor() {
   const reduce = useReducedMotion();
   const [enabled, setEnabled] = useState(false);
   const [active, setActive] = useState(false);
+  const [label, setLabel] = useState("");
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const sx = useSpring(x, { stiffness: 600, damping: 40, mass: 0.4 });
@@ -19,7 +20,10 @@ export default function Cursor() {
     const move = (e) => {
       x.set(e.clientX);
       y.set(e.clientY);
-      setActive(!!e.target.closest?.("a, button, [data-cursor]"));
+      // O elemento interativo mais próximo decide: links/botões sem rótulo não herdam o do pai.
+      const hit = e.target.closest?.("a, button, input, textarea, [data-cursor]");
+      setActive(!!hit && !hit.matches("input, textarea"));
+      setLabel(hit?.dataset.cursor || "");
     };
     window.addEventListener("pointermove", move, { passive: true });
     return () => {
@@ -29,7 +33,7 @@ export default function Cursor() {
   }, [reduce, x, y]);
 
   if (!enabled) return null;
-  const size = active ? 34 : 18;
+  const size = label === "DRAG" ? 22 : active ? 34 : 18;
 
   return (
     <motion.div
@@ -49,6 +53,11 @@ export default function Cursor() {
         )}
         <span className="absolute left-1/2 top-1/2 size-[3px] -translate-x-1/2 -translate-y-1/2 bg-white" />
       </motion.div>
+      {label && (
+        <span className="absolute left-5 top-3 whitespace-nowrap text-[10px] tracking-[0.2em] text-white">
+          [{label}]
+        </span>
+      )}
     </motion.div>
   );
 }
