@@ -24,6 +24,13 @@ const ids = navLinks.map((l) => l.id);
 export default function Navbar() {
   const active = useActiveSection(ids);
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = (onClick) =>
     navLinks.map((l) => (
@@ -39,7 +46,11 @@ export default function Navbar() {
     ));
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ${
+        scrolled ? "border-b border-line-soft bg-bg/75 backdrop-blur-md" : "border-b border-transparent"
+      }`}
+    >
       <div className="flex items-center justify-between gap-4 px-4 py-4 sm:px-8">
         <a href="#home" className="flex items-center gap-4 text-[10px] uppercase tracking-[0.22em] text-ink-2">
           <span className="hidden h-px w-6 bg-mute sm:block" aria-hidden="true" />

@@ -2,6 +2,7 @@ import Boot from "./components/Boot";
 import Cursor from "./components/Cursor";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
+import Work from "./sections/Work";
 
 const App = () => (
   <>
@@ -13,6 +14,7 @@ const App = () => (
     <Navbar />
     <main id="main">
       <Hero />
+      <Work />
     </main>
   </>
 );
