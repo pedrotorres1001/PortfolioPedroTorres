@@ -8,8 +8,23 @@ import Education from "./sections/Education";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import ProjectDossier from "./components/ProjectDossier";
+import { useEffect } from "react";
+import sfx from "./lib/sfx";
 
-const App = () => (
+/** Clique curto em qualquer botão ou link (só se o som estiver ligado). */
+function useClickSound() {
+  useEffect(() => {
+    const onClick = (e) => {
+      if (e.target.closest?.("a, button")) sfx.click();
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+}
+
+const App = () => {
+  useClickSound();
+  return (
   <>
     <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[95] btn-sys-solid">
       Skip to content
@@ -27,6 +42,7 @@ const App = () => (
     <Footer />
     <ProjectDossier />
   </>
-);
+  );
+};
 
 export default App;
