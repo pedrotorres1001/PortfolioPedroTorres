@@ -4,6 +4,7 @@ import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
 import Projects from "./sections/Projects";
+import Education from "./sections/Education";
 
 const App = () => (
   <>
@@ -17,6 +18,7 @@ const App = () => (
       <Hero />
       <Work />
       <Projects />
+      <Education />
     </main>
   </>
 );
