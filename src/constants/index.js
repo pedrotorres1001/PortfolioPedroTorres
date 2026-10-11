@@ -2,18 +2,16 @@
  * ─────────────────────────────────────────────────────────────
  *  CONTEÚDO DO PORTFÓLIO
  *  Todo o texto do site vive aqui. Os componentes só leem daqui.
- *  Procura "TODO" para os campos que ainda faltam preencher.
  * ─────────────────────────────────────────────────────────────
  */
 
 export const profile = {
   name: "Pedro Torres",
   handle: "PEDRO_TORRES",
-  // TODO: substituir pelo cargo real na Kuehne+Nagel
-  role: "ROLE_TBD",
+  role: "Junior Software Developer",
   company: "Kuehne+Nagel",
   tagline:
-    "Software engineer with a game developer's eye — building reliable systems and interactive worlds.",
+    "Software developer with a game developer's eye — building reliable systems and interactive worlds.",
   location: "Aveiro, Portugal",
   timezone: "Europe/Lisbon",
   availability: "Open to remote collaboration worldwide",
@@ -25,7 +23,7 @@ export const profile = {
 export const seo = {
   title: `${profile.name} — ${profile.role}`,
   description:
-    "Portfolio of Pedro Torres — software engineer at Kuehne+Nagel with a Master's in Digital Game Development from the University of Aveiro.",
+    "Portfolio of Pedro Torres — junior software developer at Kuehne+Nagel with a Master's in Digital Game Development from the University of Aveiro.",
 };
 
 export const navLinks = [
@@ -41,19 +39,16 @@ export const work = [
   {
     company: "Kuehne+Nagel",
     node: "ACTIVE",
-    // TODO: cargo real
-    role: "ROLE_TBD",
-    // TODO: confirmar o mês de entrada (formato AAAA-MM). Alimenta o contador "UPTIME".
-    startDate: "2025-10",
+    role: "Junior Software Developer",
+    // Data de entrada (AAAA-MM-DD). Alimenta os contadores de tempo na empresa.
+    startDate: "2025-10-15",
     endDate: null, // null = presente
     location: "Portugal",
-    // TODO: 2–3 pontos sobre o que fazes, tecnologias e impacto
     contents: [
-      "TODO — what you build or maintain day to day",
-      "TODO — main technologies and tools",
-      "TODO — one concrete result or impact",
+      "Migrating legacy pages to modern web applications.",
+      "Resolving support tickets across a wide range of day-to-day issues.",
     ],
-    stack: [], // TODO: ex. ["C#", ".NET", "SQL"]
+    stack: [], // opcional, ex. ["C#", ".NET", "SQL"]
   },
 ];
 

@@ -1,6 +1,6 @@
 # Pedro Torres — Portfolio
 
-Personal portfolio of **Pedro Torres**, software engineer at **Kuehne+Nagel** with a background in computer engineering and a Master's in Digital Game Development (University of Aveiro).
+Personal portfolio of **Pedro Torres**, junior software developer at **Kuehne+Nagel** with a background in computer engineering and a Master's in Digital Game Development (University of Aveiro).
 
 🔗 **Live:** https://pedrotorres1001.github.io/PortfolioPedroTorres/
 
@@ -28,7 +28,7 @@ A light "system interface" aesthetic: monospaced type, bracketed labels, thin li
 
 **All text lives in [`src/constants/index.js`](src/constants/index.js)** — profile, work, education, projects, socials and the EmailJS keys. Components only read from there, so updating the site never requires touching JSX. The page `<title>` and meta description are injected from the same file at build time.
 
-To add a job, add an object to `work` (the first entry is the featured one). `startDate` uses `YYYY-MM` and drives the tenure and uptime counters.
+To add a job, add an object to `work` (the first entry is the featured one). `startDate` uses `YYYY-MM-DD` and drives the tenure and uptime counters.
 
 To add a project, add an object to `myProjects` and drop a `.webp` image in `public/assets/projects/`.
 

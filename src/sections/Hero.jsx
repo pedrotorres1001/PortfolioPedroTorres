@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { profile, work } from "../constants";
 import Scramble from "../components/Scramble";
-import useNow, { elapsedSince } from "../components/useNow";
+import useNow, { dotted, elapsedSince } from "../components/useNow";
 
 const HeroScene = lazy(() => import("../components/HeroScene"));
 
@@ -70,7 +70,7 @@ function Uptime() {
       >
         {String(total).padStart(2, "0")}
       </p>
-      <p className="label">MONTHS · SINCE {current.startDate.replace("-", ".")}</p>
+      <p className="label">MONTHS · SINCE {dotted(current.startDate)}</p>
     </div>
   );
 }
