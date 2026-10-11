@@ -57,8 +57,7 @@ export const education = [
     institution: "University of Aveiro",
     degree: "Master's in Digital Game Development",
     period: "2024 — 2026",
-    // TODO: mudar para "COMPLETED" quando o mestrado estiver concluído
-    status: "IN_PROGRESS",
+    status: "COMPLETED",
     contents: [
       "Advanced game design, real-time development techniques and industry-standard pipelines.",
       "Shipped team projects in Unity and Unreal Engine — see Volcano Heart and Unbreakable Phone.",
