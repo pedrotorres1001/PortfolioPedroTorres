@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { profile, work } from "../constants";
+import { profile, ui, work } from "../constants";
+import { useT } from "../state/AppState";
 import Scramble from "../components/Scramble";
 import useNow, { dotted, elapsedSince } from "../components/useNow";
 
@@ -76,6 +77,7 @@ function Uptime() {
 }
 
 export default function Hero() {
+  const t = useT();
   const reduce = useReducedMotion();
   const ready = useDeferred();
   const show3D = ready && !reduce;
@@ -108,13 +110,13 @@ export default function Hero() {
           <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-ink-2 sm:text-xs">
             {profile.role} <span className="text-mute">@</span> {profile.company}
           </p>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-2">{profile.tagline}</p>
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-2">{t(profile.tagline)}</p>
           <div className="mt-7 flex flex-wrap gap-2">
             <a href="#projects" className="btn-sys-solid">
-              <Scramble text="[VIEW PROJECTS]" />
+              <Scramble text={t(ui.viewProjects)} />
             </a>
             <a href="#contact" className="btn-sys">
-              <Scramble text="[GET IN TOUCH]" />
+              <Scramble text={t(ui.getInTouch)} />
             </a>
           </div>
         </motion.div>

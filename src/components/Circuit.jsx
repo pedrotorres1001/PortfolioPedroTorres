@@ -25,7 +25,7 @@ export default function Circuit({ paths, nodes = [], className = "" }) {
           key={d}
           d={d}
           fill="none"
-          stroke={i % 2 ? "#b9bbc0" : "#8a8c91"}
+          style={{ stroke: i % 2 ? "var(--color-line)" : "var(--color-mute)" }}
           strokeWidth="1.2"
           vectorEffect="non-scaling-stroke"
           {...draw}
@@ -38,15 +38,19 @@ export default function Circuit({ paths, nodes = [], className = "" }) {
           cx={x}
           cy={y}
           r={type === "ring" ? 9 : 7}
-          fill={type === "ring" ? "none" : type === "dim" ? "#2b2b2e" : "#111113"}
-          stroke={type === "ring" ? "#b9bbc0" : "none"}
+          fill="none"
           strokeWidth="1.2"
           vectorEffect="non-scaling-stroke"
           initial={reduce ? false : { scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
-          style={{ transformOrigin: `${x}px ${y}px`, transformBox: "fill-box" }}
+          style={{
+            transformOrigin: `${x}px ${y}px`,
+            transformBox: "fill-box",
+            fill: type === "ring" ? "none" : type === "dim" ? "var(--color-ink-2)" : "var(--color-ink)",
+            stroke: type === "ring" ? "var(--color-line)" : "none",
+          }}
         />
       ))}
     </svg>

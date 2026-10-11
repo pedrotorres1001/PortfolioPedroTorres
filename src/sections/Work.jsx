@@ -1,4 +1,5 @@
-import { principles, work } from "../constants";
+import { principles, ui, work } from "../constants";
+import { useT } from "../state/AppState";
 import Circuit from "../components/Circuit";
 import Frame, { LogLine, Rule } from "../components/Frame";
 import Reveal from "../components/Reveal";
@@ -8,6 +9,7 @@ import useNow, { elapsedSince, formatMonth } from "../components/useNow";
 const slug = (s) => s.toUpperCase().replace(/[^A-Z0-9+]+/g, "_").replace(/^_|_$/g, "");
 
 function RecordLog({ job, now }) {
+  const t = useT();
   const { years, months, totalMonths } = elapsedSince(job.startDate, now);
   const tenure = years ? `${years}Y${months ? ` ${months}MO` : ""}` : `${totalMonths}MO`;
   return (
@@ -21,7 +23,7 @@ function RecordLog({ job, now }) {
       <LogLine k="LOCATION">{slug(job.location)}</LogLine>
       <Rule />
       <ul className="space-y-2">
-        {job.contents.map((c) => (
+        {t(job.contents).map((c) => (
           <li key={c} className="flex gap-3 text-[13px] leading-6 text-ink-2">
             <span className="text-mute" aria-hidden="true">›</span>
             <span>{c}</span>
@@ -49,11 +51,12 @@ function RecordLog({ job, now }) {
 }
 
 export default function Work() {
+  const t = useT();
   const now = useNow(60_000);
   return (
     <section id="work" className="relative py-28 sm:py-36">
       <div className="wrap">
-        <SectionHeader index="01" label="EXPERIENCE" title="WORK_HISTORY" aside="NODE: PIVOT" />
+        <SectionHeader index="02" label={t(ui.workLabel)} title={ui.workTitle} aside="NODE: PIVOT" />
 
         <div className="relative grid gap-10 lg:grid-cols-12 lg:gap-6">
           <Circuit

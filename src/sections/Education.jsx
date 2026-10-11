@@ -1,4 +1,5 @@
-import { education, work } from "../constants";
+import { education, ui, work } from "../constants";
+import { useT } from "../state/AppState";
 import Frame, { LogLine, Rule } from "../components/Frame";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
@@ -8,7 +9,7 @@ const slug = (s) => s.toUpperCase().replace(/[^A-Z0-9'+]+/g, "_").replace(/^_|_$
 /** Linha temporal compacta: educação + entrada na empresa atual. */
 function Timeline() {
   const marks = [
-    ...education.map((e) => ({ year: Number(e.period.slice(0, 4)), label: slug(e.degree.split(" in ")[0]) })),
+    ...education.map((e) => ({ year: Number(e.period.slice(0, 4)), label: slug(e.degree.en.split(" in ")[0]) })),
     { year: Number(work[0].startDate.slice(0, 4)), label: slug(work[0].company), accent: true },
   ].sort((a, b) => a.year - b.year);
   const min = marks[0].year - 0.6;
@@ -33,24 +34,25 @@ function Timeline() {
 }
 
 export default function Education() {
+  const t = useT();
   return (
     <section id="education" className="relative py-28 sm:py-36">
       <div className="wrap">
-        <SectionHeader index="03" label="EDUCATION" title="TRAINING_LOG" aside="UNIVERSITY OF AVEIRO" />
+        <SectionHeader index="04" label={t(ui.eduLabel)} title={ui.eduTitle} aside="UNIVERSITY OF AVEIRO" />
         <Reveal>
           <Timeline />
         </Reveal>
         <div className="grid gap-6 md:grid-cols-2">
           {education.map((e, i) => (
-            <Reveal key={e.degree} delay={i * 0.12}>
-              <Frame node={`EDU_${String(education.length - i).padStart(2, "0")}`} title={e.degree} className="h-full">
+            <Reveal key={e.degree.en} delay={i * 0.12}>
+              <Frame node={`EDU_${String(education.length - i).padStart(2, "0")}`} title={t(e.degree)} className="h-full">
                 <Rule />
                 <LogLine k="INSTITUTION">{slug(e.institution)}</LogLine>
                 <LogLine k="PERIOD">{e.period}</LogLine>
                 <LogLine k="STATUS">{e.status}</LogLine>
                 <Rule />
                 <div className="space-y-2">
-                  {e.contents.map((c) => (
+                  {t(e.contents).map((c) => (
                     <p key={c} className="flex gap-3 text-[13px] leading-6 text-ink-2">
                       <span className="text-mute" aria-hidden="true">›</span>
                       {c}

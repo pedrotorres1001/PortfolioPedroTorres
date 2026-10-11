@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { navLinks, profile } from "../constants";
 import Scramble from "../components/Scramble";
+import { useT } from "../state/AppState";
 
 function useActiveSection(ids) {
   const [active, setActive] = useState(ids[0]);
@@ -22,6 +23,7 @@ function useActiveSection(ids) {
 const ids = navLinks.map((l) => l.id);
 
 export default function Navbar() {
+  const t = useT();
   const active = useActiveSection(ids);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +43,7 @@ export default function Navbar() {
         className={active === l.id ? "btn-sys-solid" : "btn-sys"}
         aria-current={active === l.id ? "true" : undefined}
       >
-        <Scramble text={`[${l.label}]`} />
+        <Scramble text={`[${t(l.label)}]`} />
       </a>
     ));
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { emailjsConfig, mySocials, profile } from "../constants";
+import { emailjsConfig, mySocials, profile, ui } from "../constants";
+import { useT } from "../state/AppState";
 import Frame, { Rule } from "../components/Frame";
 import Reveal from "../components/Reveal";
 import Scramble from "../components/Scramble";
@@ -17,6 +18,7 @@ function Field({ id, label, as = "input", ...props }) {
 }
 
 function CopyEmail() {
+  const t = useT();
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
@@ -29,12 +31,13 @@ function CopyEmail() {
   };
   return (
     <button type="button" onClick={copy} className="btn-sys" aria-live="polite">
-      {copied ? "[COPIED ✓]" : <Scramble text="[COPY EMAIL]" />}
+      {copied ? t(ui.copied) : <Scramble text={t(ui.copyEmail)} />}
     </button>
   );
 }
 
 export default function Contact() {
+  const t = useT();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
@@ -65,12 +68,9 @@ export default function Contact() {
     }
   };
 
-  const statusLine = {
-    idle: "AWAITING_INPUT",
-    sending: "TRANSMITTING…",
-    sent: "TRANSMISSION_COMPLETE · THANK YOU",
-    error: `TRANSMISSION_FAILED · EMAIL ${profile.email.toUpperCase()}`,
-  }[status];
+  const statusLine = t(
+    { idle: ui.statusIdle, sending: ui.statusSending, sent: ui.statusSent, error: ui.statusError }[status]
+  );
 
   const links = [
     ...mySocials.map((s) => ({ ...s, display: s.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") })),
@@ -80,14 +80,14 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-28 sm:py-36">
       <div className="wrap">
-        <SectionHeader index="04" label="CONTACT" title="OPEN_CHANNEL" aside={profile.location.toUpperCase()} />
+        <SectionHeader index="05" label={t(ui.contactLabel)} title={ui.contactTitle} aside={profile.location.toUpperCase()} />
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
             <p className="max-w-md text-sm leading-7 text-ink-2">
-              Have a project, a role or a game idea in mind? Send a message and I&apos;ll get back to you.
+              {t(ui.contactIntro)}
             </p>
-            <p className="label mt-4">{profile.availability}</p>
+            <p className="label mt-4">{t(profile.availability)}</p>
             <div className="mt-6">
               <CopyEmail />
             </div>
@@ -116,14 +116,14 @@ export default function Contact() {
           </Reveal>
 
           <Reveal className="lg:col-span-7" delay={0.12}>
-            <Frame archive="TRANSMIT://" node="CONTACT" title="NEW_MESSAGE">
+            <Frame archive="TRANSMIT://" node="CONTACT" title={ui.newMessage}>
               <Rule />
               <form onSubmit={onSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <Field id="name" label="NAME" type="text" autoComplete="name" value={form.name} onChange={onChange} placeholder="Jane Doe" />
-                  <Field id="email" label="EMAIL" type="email" autoComplete="email" value={form.email} onChange={onChange} placeholder="jane@company.com" />
+                  <Field id="name" label={t(ui.fieldName)} type="text" autoComplete="name" value={form.name} onChange={onChange} placeholder={ui.phName} />
+                  <Field id="email" label={ui.fieldEmail} type="email" autoComplete="email" value={form.email} onChange={onChange} placeholder={ui.phEmail} />
                 </div>
-                <Field id="message" label="MESSAGE" as="textarea" rows={5} value={form.message} onChange={onChange} placeholder="Tell me about it…" />
+                <Field id="message" label={t(ui.fieldMessage)} as="textarea" rows={5} value={form.message} onChange={onChange} placeholder={t(ui.phMessage)} />
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
                   <p className="label" role="status" aria-live="polite">
                     [ STATUS ] :{" "}
@@ -140,7 +140,7 @@ export default function Contact() {
                     </AnimatePresence>
                   </p>
                   <button type="submit" className="btn-sys-solid disabled:opacity-50" disabled={status === "sending"}>
-                    {status === "sending" ? "[SENDING…]" : <Scramble text="[SEND ↵]" />}
+                    {status === "sending" ? t(ui.sending) : <Scramble text={t(ui.send)} />}
                   </button>
                 </div>
               </form>
