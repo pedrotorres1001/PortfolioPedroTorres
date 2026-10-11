@@ -27,12 +27,12 @@ export default function SideIndex() {
               <a
                 href={`#${l.id}`}
                 aria-current={on ? "true" : undefined}
-                aria-label={t(l.label)}
                 className={`block px-1 text-[10px] tabular-nums tracking-[0.1em] transition-colors ${
                   on ? "text-ink" : "text-mute hover:text-ink"
                 }`}
               >
                 {on ? `[${String(i).padStart(2, "0")}]` : String(i).padStart(2, "0")}
+                <span className="sr-only"> {t(l.label)}</span>
               </a>
             </li>
           );

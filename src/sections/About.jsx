@@ -16,7 +16,8 @@ function Statement() {
   const x2 = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
   const [day, night] = t(profile.tagline).split(/,\s*/);
   return (
-    <div ref={ref} className="wrap overflow-hidden py-6 sm:py-10" aria-label={t(profile.tagline)}>
+    <div ref={ref} className="wrap overflow-hidden py-6 sm:py-10">
+      <p className="sr-only">{t(profile.tagline)}</p>
       <motion.p
         style={reduce ? undefined : { x: x1 }}
         className="whitespace-nowrap text-[clamp(1rem,4.2vw,4.6rem)] font-light uppercase leading-none tracking-[0.06em] text-ink"

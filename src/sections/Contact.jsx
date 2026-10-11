@@ -83,7 +83,7 @@ export default function Contact() {
         <SectionHeader index="05" label={t(ui.contactLabel)} title={ui.contactTitle} aside={profile.location.toUpperCase()} />
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <Reveal className="lg:col-span-5">
+          <Reveal className="min-w-0 lg:col-span-5">
             <p className="max-w-md text-sm leading-7 text-ink-2">
               {t(ui.contactIntro)}
             </p>
@@ -120,7 +120,7 @@ export default function Contact() {
             </ul>
           </Reveal>
 
-          <Reveal className="lg:col-span-7" delay={0.12}>
+          <Reveal className="min-w-0 lg:col-span-7" delay={0.12}>
             <Frame archive="TRANSMIT://" node="CONTACT" title={ui.newMessage}>
               <Rule />
               <form onSubmit={onSubmit} className="space-y-6">
