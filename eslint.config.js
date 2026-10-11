@@ -29,6 +29,8 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'react/prop-types': 'off', // React 19 já não usa propTypes
+      'react/no-unknown-property': ['error', { ignore: ['args', 'attach', 'geometry', 'position', 'rotation', 'scale', 'intensity', 'flatShading', 'roughness', 'metalness', 'transparent', 'opacity', 'sizeAttenuation', 'dispose'] }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

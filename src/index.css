@@ -2,7 +2,7 @@
 
 /* ─── Design tokens ─────────────────────────────────────────── */
 @theme {
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --color-bg: #e4e5e7;        /* fundo cinza-gelo */
   --color-surface: #ececec;   /* cartões */

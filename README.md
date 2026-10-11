@@ -1,116 +1,59 @@
-# 🚀 3D Developer Portfolio
+# Pedro Torres — Portfolio
 
-A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects — designed to help you stand out and showcase your skills creatively.
+Personal portfolio of **Pedro Torres**, software engineer at **Kuehne+Nagel** with a background in computer engineering and a Master's in Digital Game Development (University of Aveiro).
 
-![3d Portfolio Screenshot GitHub](https://github.com/user-attachments/assets/9b0ed20e-074e-4f2a-81d8-20c9da751e9e)
+🔗 **Live:** https://pedrotorres1001.github.io/PortfolioPedroTorres/
 
----
+![Portfolio preview](public/og.png)
 
-## 📚 Table of Contents
+## Design
 
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Assets](#-assets)
-- [Contact Me](#-contact-me)
-- [Suggestions or Feedback](#-suggestions-or-feedback)
-- [Like This Project?](#-like-this-project)
+A light "system interface" aesthetic: monospaced type, bracketed labels, thin lines and archive-style record cards, with a low-poly three.js scene in the hero.
 
----
+- **Palette** — ice grey `#E4E5E7`, surface `#ECECEC`, ink `#1C1C1E`, single accent `#22C55E`
+- **Type** — JetBrains Mono (self-hosted via Fontsource)
+- **Motion** — short boot screen, scramble text on hover, custom cursor, scroll reveals. All of it is disabled when the visitor prefers reduced motion.
 
-## ✨ Features
+## Sections
 
-- 🔥 3D visuals powered by **React Three Fiber** and **Drei**
-- ⚡ Smooth transitions and scroll-based animations using **Framer Motion**
-- 🎨 Clean, responsive UI with **TailwindCSS**
-- 💌 Working contact form using **EmailJS**
-- 🧱 Beautiful UI enhancements with **Aceternity UI** and **Magic UI**
-- 🚀 Lightning-fast development with **Vite**
+| # | Section | What's in it |
+|---|---------|--------------|
+| — | Hero | Name, current role, live metadata, "uptime" at Kuehne+Nagel, 3D scene |
+| 01 | Work | Kuehne+Nagel record log + working principles |
+| 02 | Projects | Numbered index with hover preview and a detail dialog |
+| 03 | Education | Bachelor's and Master's at the University of Aveiro |
+| 04 | Contact | EmailJS form, LinkedIn, Instagram, email |
 
----
+## Editing content
 
-## 🛠 Tech Stack
+**All text lives in [`src/constants/index.js`](src/constants/index.js)** — profile, work, education, projects, socials and the EmailJS keys. Components only read from there, so updating the site never requires touching JSX. The page `<title>` and meta description are injected from the same file at build time.
 
-| Tech              | Description                           |
-|-------------------|---------------------------------------|
-| React             | Front-end JavaScript library          |
-| Vite              | Fast bundler and dev environment      |
-| TailwindCSS       | Utility-first CSS framework           |
-| React Three Fiber | 3D rendering with Three.js in React   |
-| Drei              | Helpers and abstractions for R3F      |
-| Framer Motion     | Animation library for React           |
-| EmailJS           | Form handling and email integration   |
-| Aceternity UI     | Custom UI components                  |
-| Magic UI          | Prebuilt UI elements and design extras|
+To add a job, add an object to `work` (the first entry is the featured one). `startDate` uses `YYYY-MM` and drives the tenure and uptime counters.
 
----
+To add a project, add an object to `myProjects` and drop a `.webp` image in `public/assets/projects/`.
 
-## 📁 Project Structure
+## Stack
 
-```bash
-├── public/
-│   ├── assets/             # Images, textures, models
-│   ├── models/             # 3D Astronaut model
-│   └── vite.svg
-├── src/
-│   ├── components/         # Reusable components
-│   ├── constants/          # Reusable datas
-│   ├── sections/           # Portfolio sections (Hero, About, etc.)
-│   ├── App.jsx             # Main app file
-│   ├── index.css           # Tailwind css
-│   └── main.jsx            # Entry point
-├── tailwind.config.js
-└── vite.config.js
-```
+React 19 · Vite · Tailwind CSS 4 · three.js + React Three Fiber · Motion · EmailJS
 
----
+The 3D scene is lazy-loaded after the first paint and pauses when it's off-screen. Reduced-motion visitors get a static SVG fallback.
 
-## 🚀 Getting Started
-1. Clone the Repository
-```bash
-git clone https://github.com/Ali-Sanati/Portfolio.git
-cd Portfolio
-```
-2. Install Dependencies
+## Development
+
 ```bash
 npm install
+npm run dev       # http://localhost:5173/PortfolioPedroTorres/
+npm run build
+npm run deploy    # builds and publishes dist/ to GitHub Pages (gh-pages branch)
 ```
-3. Run the Development Server
-```bash
-npm run dev
+
+## Structure
+
 ```
-The app will be available at http://localhost:5173.
-
----
-
-## 🔗 Assets
-Assets used in the project can be found [here](https://github.com/user-attachments/files/19820923/public.zip)
-
----
-
-## 📬 Contact Me
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/ali.sanatidev/reels/) 
-[![Static Badge](https://img.shields.io/badge/Youtube-%23FF0033?style=flat&logo=youtube)](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-sanati/) 
-
----
-
-## 💡 Suggestions or Feedback?
-Leave a comment on the [YouTube video](https://youtu.be/S9UQItTpwUQ) or open an issue here on GitHub.<br/>
-👉 What should I build next?
-
-- A beautiful Landing Page
-
-- A complete E-commerce site
-
-- A fun App Clone (YouTube, Netflix, etc.)
-
-Or another interactive Portfolio
-
-Let me know!
-
----
-
-## ⭐ Like This Project?
-Star the repo and [subscribe](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA??sub_confirmation=1) to the YouTube channel for more dev content!
+src/
+├── constants/index.js   # all content
+├── components/          # Frame, Scramble, Cursor, Boot, HeroScene, ...
+├── sections/            # Navbar, Hero, Work, Projects, Education, Contact, Footer
+├── App.jsx
+└── index.css            # design tokens
+```

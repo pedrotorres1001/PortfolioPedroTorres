@@ -85,7 +85,7 @@ export default function Contact() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
             <p className="max-w-md text-sm leading-7 text-ink-2">
-              Have a project, a role or a game idea in mind? Send a message and I'll get back to you.
+              Have a project, a role or a game idea in mind? Send a message and I&apos;ll get back to you.
             </p>
             <p className="label mt-4">{profile.availability}</p>
             <div className="mt-6">
