@@ -78,7 +78,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-28 sm:py-36">
+    <section id="contact" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeader index="05" label={t(ui.contactLabel)} title={ui.contactTitle} aside={profile.location.toUpperCase()} />
 

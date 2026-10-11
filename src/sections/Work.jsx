@@ -54,7 +54,7 @@ export default function Work() {
   const t = useT();
   const now = useNow(60_000);
   return (
-    <section id="work" className="relative py-28 sm:py-36">
+    <section id="work" className="relative py-20 sm:py-28">
       <div className="wrap">
         <SectionHeader index="02" label={t(ui.workLabel)} title={ui.workTitle} aside="NODE: PIVOT" />
 
