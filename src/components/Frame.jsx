@@ -3,7 +3,7 @@
  */
 export function Rule() {
   return (
-    <div className="rule my-3 text-xs" aria-hidden="true">
+    <div className="rule my-3 w-0 min-w-full text-xs" aria-hidden="true">
       {"// " + "-".repeat(120)}
     </div>
   );
@@ -19,7 +19,7 @@ export function LogLine({ k, children }) {
 
 export default function Frame({ node, title, children, className = "", archive = "ARCHIVE://" }) {
   return (
-    <div className={`relative bg-surface/90 p-3 backdrop-blur-sm sm:p-4 ${className}`}>
+    <div className={`relative min-w-0 bg-surface/90 p-3 backdrop-blur-sm sm:p-4 ${className}`}>
       <div className="relative border border-ink/60 px-5 py-6 sm:px-7 sm:py-7">
         {["-left-[3px] -top-[3px]", "-right-[3px] -top-[3px]", "-left-[3px] -bottom-[3px]", "-right-[3px] -bottom-[3px]"].map(
           (pos) => (
