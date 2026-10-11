@@ -3,6 +3,7 @@ import Cursor from "./components/Cursor";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
+import Projects from "./sections/Projects";
 
 const App = () => (
   <>
@@ -15,6 +16,7 @@ const App = () => (
     <main id="main">
       <Hero />
       <Work />
+      <Projects />
     </main>
   </>
 );
