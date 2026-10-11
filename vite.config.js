@@ -21,10 +21,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), seoFromConstants()],
   base: "/PortfolioPedroTorres/",
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: { three: ["three", "@react-three/fiber"] },
-      },
-    },
+    // three.js só entra no chunk lazy da cena 3D (~850 kB, carregado após o primeiro paint)
+    chunkSizeWarningLimit: 1000,
   },
 });

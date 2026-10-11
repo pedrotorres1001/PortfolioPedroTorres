@@ -50,9 +50,9 @@ export default function Scramble({
       className={className}
       onMouseEnter={hover ? run : undefined}
       onFocus={hover ? run : undefined}
-      aria-label={text}
       {...rest}
     >
+      <span className="sr-only">{text}</span>
       <span aria-hidden="true">{out}</span>
     </Tag>
   );
