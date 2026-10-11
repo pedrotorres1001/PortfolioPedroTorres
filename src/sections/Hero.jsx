@@ -150,7 +150,8 @@ function Uptime() {
 
 export default function Hero() {
   const t = useT();
-  const { loop, theme } = useApp();
+  const { loop, theme, gameOpen, openProject, terminalOpen } = useApp();
+  const paused = gameOpen || !!openProject || terminalOpen;
   const reduce = useReducedMotion();
   const ready = useDeferred();
   const show3D = ready && !reduce;
@@ -205,7 +206,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 opacity-55 sm:opacity-100 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]">
         {show3D ? (
           <Suspense fallback={<StaticCrystal />}>
-            <HeroScene loop={loop} pointer={pointer} drag={drag} theme={theme} />
+            <HeroScene loop={loop} pointer={pointer} drag={drag} theme={theme} paused={paused} />
           </Suspense>
         ) : (
           <StaticCrystal />

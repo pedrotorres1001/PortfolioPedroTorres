@@ -267,7 +267,7 @@ function Assembly({ loop, pointer, drag, pal }) {
   );
 }
 
-export default function HeroScene({ loop, pointer, drag, theme = "light" }) {
+export default function HeroScene({ loop, pointer, drag, theme = "light", paused = false }) {
   const wrap = useRef();
   const [visible, setVisible] = useState(true);
   const pal = PALETTES[theme] || PALETTES.light;
@@ -281,7 +281,7 @@ export default function HeroScene({ loop, pointer, drag, theme = "light" }) {
   return (
     <div ref={wrap} className="absolute inset-0">
       <Canvas
-        frameloop={visible ? "always" : "never"}
+        frameloop={visible && !paused ? "always" : "never"}
         dpr={[1, 1.5]}
         camera={{ position: [0, 0, 7], fov: 45 }}
         gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}

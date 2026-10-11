@@ -8,6 +8,7 @@ import Education from "./sections/Education";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import ProjectDossier from "./components/ProjectDossier";
+import Overlays from "./components/Overlays";
 import { useEffect } from "react";
 import sfx from "./lib/sfx";
 
@@ -41,6 +42,7 @@ const App = () => {
     </main>
     <Footer />
     <ProjectDossier />
+    <Overlays />
   </>
   );
 };
